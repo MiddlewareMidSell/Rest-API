@@ -3,15 +3,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const productSchema = new Schema(
-  {
-    id: {
-      type: Number,
-      required: true,
-      trim: true,
-    },
+  { 
     name: {
       type: String,
       require: true,
+      unique: true,
       trim: true,
     },
     price: {
@@ -19,7 +15,17 @@ const productSchema = new Schema(
       required: true,
       trim: true,
     },
+    category: {
+      type: String,
+      required: true,
+      trim: true,
+    },
     description: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    image: {
       type: String,
       required: true,
       trim: true,

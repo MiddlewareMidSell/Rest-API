@@ -13,8 +13,6 @@ require("../db/connectDB");
 const jwt = require("jsonwebtoken");
 
 app.post("/Register", async (req, res) => {
-
-
   try {
     const user = await User.create({
       name: req.body.name,

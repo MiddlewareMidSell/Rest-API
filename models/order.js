@@ -4,12 +4,6 @@ const Schema = mongoose.Schema;
 
 const   orderSchema = new Schema(
   {
-    id: {
-        type: Number,
-        required: true,
-        unique: true,
-        trim: true,
-    },
     userId: {
         type: mongoose.Types.ObjectId,
         required: true,
@@ -19,7 +13,13 @@ const   orderSchema = new Schema(
     products: [
         {
             productId: {
-                type: Number,
+                type: mongoose.Types.ObjectId,
+                required: true,
+                trim: true,
+                ref: "Product",
+            },
+            name: {
+                type: String,
                 required: true,
                 trim: true,
             },

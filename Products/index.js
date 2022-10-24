@@ -19,7 +19,7 @@ app.post("/insertProduct", async (req, res) => {
       category: req.body.category,
       description: req.body.description,
       image: req.body.image,
-    });
+    })
     res.status(201).json({
       status: "ok",
       product: product._id,
@@ -33,7 +33,7 @@ app.post("/insertProduct", async (req, res) => {
 });
 
 
-app.get("/getProducts", (req, res) => {
+app.get("/getProducts", async (req, res) => {
   Product.find()
     .then((result) => {
       res.status(200).json({
@@ -50,7 +50,7 @@ app.get("/getProducts", (req, res) => {
     });
 });
 
-app.get("/getProduct/:id", (req, res) => {
+app.get("/getProduct/:id", async (req, res) => {
   const id = req.params.id;
   Product.findById(id)
     .then((result) => {
@@ -68,7 +68,7 @@ app.get("/getProduct/:id", (req, res) => {
     });
 });
 
-app.put("/updateProduct/:id", (req, res) => {
+app.put("/updateProduct/:id", async (req, res) => {
   const id = req.params.id;
   Product.findByIdAndUpdate(id, req.body)
     .then((result) => {
